@@ -48,7 +48,7 @@ const PortfolioSection = () => {
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
+      title: "Moran Cafe Website",
       description: "Modern e-commerce with smooth animations and intuitive UX",
       iframeSrc: "https://coztcafe.netlify.app/",
       delay: 0,
@@ -57,7 +57,7 @@ const PortfolioSection = () => {
     },
     {
       id: 2,
-      title: "Creative Portfolio",
+      title: "Luxury Real Estate",
       description: "Interactive design with 3D elements and creative layout",
       iframeSrc: "https://luxuriousrealstate.netlify.app/",
       delay: 0.2,
@@ -91,7 +91,7 @@ const PortfolioSection = () => {
       </motion.h3>
       
       {/* Project Cards */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 mb-8">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-6 mb-8">
         {projects.map((project, index) => (
           <motion.div
             key={project.id}
@@ -99,12 +99,20 @@ const PortfolioSection = () => {
             initial="initial"
             animate={inView ? "animate" : "initial"}
             style={{ animationDelay: `${index * 1}s` }}
-            className="group relative overflow-hidden rounded-2xl shadow-2xl cursor-pointer"
+            className="group relative  rounded-2xl  shadow-2xl cursor-pointer"
             whileHover={{ 
               y: -8,
               transition: { duration: 0.3 }
             }}
           >
+           <div className='text-center'>
+             <h1 className='text-amber-200 text-3xl text-center'>
+                {project.title}
+            </h1>
+            <p className='text-slate-300 text-sm mb-4'>
+              {project.description}
+            </p>
+           </div>
             <motion.div
               className="rounded-2xl overflow-hidden border border-slate-700"
               whileHover={{ scale: 1.05 }}
@@ -112,26 +120,11 @@ const PortfolioSection = () => {
             >
               <iframe
                 src={project.iframeSrc}
-                className="w-full h-64 rounded-2xl"
+                className="w-full h-[60svh] rounded-2xl"
                 title={`Project ${project.title}`}
                 loading="lazy"
               />
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end p-6"
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-              >
-                <Link to={project.iframeSrc} >
-                <motion.button
-                  className="bg-white text-slate-900 px-6 py-3 rounded-full font-semibold transform translate-y-8 group-hover:translate-y-0 transition-transform duration-300 hover:bg-amber-400"
-                  whileHover={{ scale: 1.05 }}
-                  
-                  whileTap={{ scale: 0.95 }}
-                >
-                  View Project
-                </motion.button>
-                </Link>
-              </motion.div>
+              
             </motion.div>
           </motion.div>
         ))}
