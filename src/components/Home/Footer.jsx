@@ -65,8 +65,8 @@ const Footer = () => {
         <div>
           <h3 className="font-bold text-lg mb-4 text-[#0E295C]">Get in Touch</h3>
           <ul className="space-y-2 text-gray-600 text-sm">
-            <li>📞 +91 99999 99999</li>
-            <li>📧 hello@vyomaglobal.in</li>
+            <li>📞 +91 8460207883</li>
+            <li>📧 vyomaglobal01@gmail.com</li>
             <li>📍 Ahmedabad, India</li>
           </ul>
         </div>
